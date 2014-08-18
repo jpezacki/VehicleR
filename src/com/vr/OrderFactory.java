@@ -28,7 +28,7 @@ public class OrderFactory {
 
 		Order or = new Order();
 		
-		String args[] = str.split("\\s+");
+		String args[] = str.trim().split("\\s+");
 		for(int i = 0 ; i < args.length ; i++) args[i] = args[i].trim();
 		
 		if(args.length == 0) throw new WrongNumberOfParameters(); 
