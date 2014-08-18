@@ -1,14 +1,14 @@
 package com.vr.core;
 
 import com.vr.annotation.CommandParameter;
-import com.vr.annotation.ViehicleMeta;
+import com.vr.annotation.VehicleMeta;
 import com.vr.core.enums.Sex;
 
 
-@ViehicleMeta(viehicleName="motorcycle", minNumberOfArguments=3 ,maxNumberOfArguments=3)
-public class Motorcycle extends Viehicle{
+@VehicleMeta(viehicleName="motorcycle", minNumberOfArguments=3 ,maxNumberOfArguments=3)
+public class Motorcycle extends Vehicle{
 	
-	@CommandParameter(index=2)
+	@CommandParameter(index=2, inputType = "select", label = "Sex")
 	private Sex sex;
 	
 	public String toString(){
@@ -25,7 +25,7 @@ public class Motorcycle extends Viehicle{
 		this.sex = sex;
 	}
 	
-	public int compareTo(Viehicle arg0) {
+	public int compareTo(Vehicle arg0) {
 		if(arg0 instanceof Motorcycle &&
 				((Motorcycle)arg0).getSex().equals(this.getSex()) &&
 						this.getColor().equals(arg0.getColor()))

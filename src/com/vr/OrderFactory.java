@@ -7,11 +7,11 @@ import org.reflections.Reflections;
 
 import com.vr.PaintFactory;
 import com.vr.annotation.CommandParameter;
-import com.vr.annotation.ViehicleMeta;
+import com.vr.annotation.VehicleMeta;
 import com.vr.core.Boat;
 import com.vr.core.Ferrari;
 import com.vr.core.Order;
-import com.vr.core.Viehicle;
+import com.vr.core.Vehicle;
 import com.vr.core.enums.Color;
 import com.vr.core.enums.Command;
 import com.vr.core.enums.OrderStatus;
@@ -74,8 +74,8 @@ public class OrderFactory {
 		
 		}
 		
-		if(args.length < or.getViehicle().getClass().getAnnotation(ViehicleMeta.class).minNumberOfArguments() ||
-				args.length > or.getViehicle().getClass().getAnnotation(ViehicleMeta.class).maxNumberOfArguments())
+		if(args.length < or.getViehicle().getClass().getAnnotation(VehicleMeta.class).minNumberOfArguments() ||
+				args.length > or.getViehicle().getClass().getAnnotation(VehicleMeta.class).maxNumberOfArguments())
 		
 			throw new WrongNumberOfParameters();
 			
@@ -103,7 +103,7 @@ public class OrderFactory {
 			int i = f.getAnnotation(CommandParameter.class).index();
 			
 			
-			if(i >= args.length && i + 1 <= or.getViehicle().getClass().getAnnotation(ViehicleMeta.class).maxNumberOfArguments()) continue;
+			if(i >= args.length && i + 1 <= or.getViehicle().getClass().getAnnotation(VehicleMeta.class).maxNumberOfArguments()) continue;
 			
 			try {
 
@@ -142,13 +142,13 @@ public class OrderFactory {
 		
 	}
 	
-	public Viehicle createViehicle(String name) throws NoSuchViehicleTypeException{
+	public Vehicle createViehicle(String name) throws NoSuchViehicleTypeException{
 		Reflections reflections = new Reflections("com.vr.core");    
-		Set<Class<? extends Viehicle>> vs = reflections.getSubTypesOf(Viehicle.class);
+		Set<Class<? extends Vehicle>> vs = reflections.getSubTypesOf(Vehicle.class);
 		
 		for(Class c : vs){
 			
-			ViehicleMeta meta = (ViehicleMeta) c.getAnnotation(ViehicleMeta.class);
+			VehicleMeta meta = (VehicleMeta) c.getAnnotation(VehicleMeta.class);
 
 			if(meta == null) continue;
 			
@@ -156,7 +156,7 @@ public class OrderFactory {
 				
 				try {
 					
-					return (Viehicle) c.newInstance();
+					return (Vehicle) c.newInstance();
 				
 				} catch (InstantiationException | IllegalAccessException e) {
 					e.printStackTrace();

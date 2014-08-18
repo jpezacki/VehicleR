@@ -4,12 +4,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CommandParameter {
-	
-	int index();
-	
-	String label();
-	
-	String inputType();
+public @interface VehicleMeta{
 
+	String viehicleName();
+	
+	int minNumberOfArguments();
+	
+	int maxNumberOfArguments();
+	
 }

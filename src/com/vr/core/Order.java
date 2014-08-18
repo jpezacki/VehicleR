@@ -16,7 +16,7 @@ public class Order{
 	
 	private OrderStatus status;
 	
-	private Viehicle viehicle;
+	private Vehicle viehicle;
 	
 	private List<String> errors = new ArrayList<String>();
 	
@@ -36,11 +36,11 @@ public class Order{
 		this.errors = errors;
 	}
 
-	public Viehicle getViehicle() {
+	public Vehicle getViehicle() {
 		return viehicle;
 	}
 
-	public void setViehicle(Viehicle viehicle) {
+	public void setViehicle(Vehicle viehicle) {
 		this.viehicle = viehicle;
 	}
 

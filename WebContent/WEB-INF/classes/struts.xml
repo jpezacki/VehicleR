@@ -29,6 +29,14 @@
     	<action name="deleteOrder" class="com.vr.ControllerAction" method="deleteOrder" >
         	<result name="success" >/index.jsp</result>
     	</action>
+    	
+    	<action name="getVehiclesAjax" class="com.vr.ControllerAction" method="getVehiclesAjax" >
+        	<result name="success" >/ajax.jsp</result>
+    	</action>
+    	
+    	<action name="getVehicleOptionsAjax" class="com.vr.ControllerAction" method="getVehicleOptionsAjax" >
+        	<result name="success" >/ajax.jsp</result>
+    	</action>
     		
 	</package>
 

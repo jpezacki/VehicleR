@@ -2,15 +2,15 @@ package com.vr.core;
 
 
 import com.vr.annotation.CommandParameter;
-import com.vr.annotation.ViehicleMeta;
+import com.vr.annotation.VehicleMeta;
 
-@ViehicleMeta(viehicleName="car", minNumberOfArguments=4,maxNumberOfArguments=4)
-public class Car extends Viehicle{
+@VehicleMeta(viehicleName="car", minNumberOfArguments=4,maxNumberOfArguments=4)
+public class Car extends Vehicle{
 
-	@CommandParameter(index=2)
+	@CommandParameter(index=2, inputType = "input", label = "Number of wheels")
 	private Integer numberOfWheels;
 	
-	@CommandParameter(index=3)
+	@CommandParameter(index=3, inputType = "input", label = "Number of steering wheels")
 	private Integer numberOfSteeringWheels;
 
 	public String toString(){
@@ -35,7 +35,7 @@ public class Car extends Viehicle{
 		this.numberOfWheels = numberOfWheels;
 	}
 
-	public int compareTo(Viehicle arg0) {
+	public int compareTo(Vehicle arg0) {
 		if(arg0 instanceof Car &&
 				((Car)arg0).getNumberOfSteeringWheels().equals(this.getNumberOfSteeringWheels()) &&
 					((Car)arg0).getNumberOfWheels() == this.getNumberOfWheels() &&

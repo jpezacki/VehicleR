@@ -1,13 +1,13 @@
 package com.vr.core;
 
 import com.vr.annotation.CommandParameter;
-import com.vr.annotation.ViehicleMeta;
+import com.vr.annotation.VehicleMeta;
 import com.vr.core.enums.BicycleType;
 
-@ViehicleMeta(viehicleName="bicycle", minNumberOfArguments=3 ,maxNumberOfArguments=3)
-public class Bicycle extends Viehicle{
+@VehicleMeta(viehicleName="bicycle", minNumberOfArguments=3 ,maxNumberOfArguments=3)
+public class Bicycle extends Vehicle{
 
-	@CommandParameter(index=2)
+	@CommandParameter(index=2, inputType = "select", label = "Bicycle type")
 	private BicycleType type;
 	
 	public String toString(){
@@ -32,7 +32,7 @@ public class Bicycle extends Viehicle{
 	}
 
 	@Override
-	public int compareTo(Viehicle arg0) {
+	public int compareTo(Vehicle arg0) {
 		if(arg0 instanceof Bicycle &&
 				((Bicycle)arg0).getType().equals(this.getType()) &&
 					this.getColor().equals(arg0.getColor()))
